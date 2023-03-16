@@ -1,3 +1,4 @@
+#include "Huff-Console/Console.huff"
 #include "huffmate/utils/Calls.huff"
 
 /// @dev returndatasize is 0, because we don't have return value, this way i can add a 0x00 in the stak in a cheap gas way
@@ -6,6 +7,15 @@
     0x04
     dup1 calldataload
     dup1 iszero end jumpi 
+
+    /** @dev
+    console example
+    // logs out calldata as bytes from offset 0x00 till 0x00 + 0x60 bytes and uses memory offset 0x00 for logging operations
+    LOG_CALLDATA(0x04, 0x60, 0x00)
+    LINE_BREAK(0x00, 0x20)
+    LOG_STACK_1(0x00)
+    LOG_STACK_AS_ADDRESS(dup1, 0x00)            // [0x01, address(this), blockhash, gas, 0x00, caller, gasprice, pc]
+    */
 
     // address
     CALL(returndatasize, returndatasize, returndatasize, returndatasize, callvalue, dup6, gas)
