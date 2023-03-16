@@ -1,5 +1,7 @@
 #include "huffmate/utils/Calls.huff"
 
+/// @dev returndatasize is 0, because we don't have return value, this way i can add a 0x00 in the stak in a cheap gas way
+
 #define macro MAIN() = takes (0) returns (0) {
     0x04
     dup1 calldataload

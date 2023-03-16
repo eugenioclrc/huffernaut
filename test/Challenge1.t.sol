@@ -22,7 +22,6 @@ contract SimpleStoreTest is Test {
         vm.deal(player, 3);
     }
 
-    
     function testSimpleHack() public {
         vm.startPrank(player);
         puzzle.contribute{value: 1}();
@@ -37,18 +36,15 @@ contract SimpleStoreTest is Test {
         vm.stopPrank();
     }
 
-    
     function testHackHuff() public {
         address hack = HuffDeployer.deploy("Challenge1-delegatecall/Hack");
         IHack(hack).hack{value: 3}(address(puzzle));
-        
+
         assertEq(address(puzzle).balance, 0);
         assertEq(puzzle.owner(), hack);
     }
 
-    receive() external payable {
-        
-    }
+    receive() external payable {}
 }
 
 interface IHack {
