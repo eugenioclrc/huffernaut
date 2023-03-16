@@ -1,0 +1,20 @@
+#include "huffmate/utils/Calls.huff"
+
+#define macro MAIN() = takes (0) returns (0) {
+    0x04
+    dup1 calldataload
+    dup1 iszero end jumpi 
+
+    // address
+    CALL(returndatasize, returndatasize, returndatasize, returndatasize, callvalue, dup6, gas)
+    pop
+    __FUNC_SIG("withdraw()")
+    returndatasize mstore 
+    
+    CALL(returndatasize, returndatasize, 0x04, 0x1c, returndatasize, dup6, gas)
+
+    // send all to the owner
+    CALL(returndatasize, dup1, dup1, dup1, selfbalance, caller, gas)
+    
+    end:
+}

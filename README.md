@@ -1,8 +1,10 @@
 <img align="right" width="150" height="150" top="100" src="./assets/blueprint.png">
 
-# huff-project-template • [![ci](https://github.com/huff-language/huff-project-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/huff-language/huff-project-template/actions/workflows/ci.yaml) ![license](https://img.shields.io/github/license/huff-language/huff-project-template.svg) ![solidity](https://img.shields.io/badge/solidity-^0.8.15-lightgrey)
 
-Versatile Huff Project Template using Foundry.
+# Huffernaut • [![ci](https://github.com/huff-language/huff-project-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/huff-language/huff-project-template/actions/workflows/ci.yaml) ![license](https://img.shields.io/github/license/huff-language/huff-project-template.svg) ![solidity](https://img.shields.io/badge/solidity-^0.8.15-lightgrey)
+
+Huffernaut is an educational project that aims to solve all Ethernaut challenges using the Huff programming language. This project is designed for developers who want to learn and improve their skills in Ethereum smart contract development, particularly with the low-level Huff language.
+
 
 
 ## Getting Started
