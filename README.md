@@ -6,8 +6,12 @@
 Huffernaut is an educational project that aims to solve all Ethernaut challenges using the Huff programming language. This project is designed for developers who want to learn and improve their skills in Ethereum smart contract development, particularly with the low-level Huff language.
 
 
+## Introduction
+
+Ethernaut is a popular series of smart contract security challenges on the Ethereum blockchain. This project, Huffernaut, aims to provide solutions for these challenges using the Huff programming language. Huff is a low-level language that compiles directly to EVM bytecode, allowing developers to create highly optimized and efficient smart contracts.
 
 ## Getting Started
+
 
 ### Requirements
 
@@ -64,9 +68,9 @@ lib
 scripts
 ├─ Deploy.s.sol — Deployment Script
 src
-├─ SimpleStore — A Simple Storage Contract in Huff
+├─ Challenge1-delegatecall — Ethernaut challenge 1
 test
-└─ SimpleStore.t — SimpleStoreTests
+└─ Challenge1.t — Test and solutions for challenge 1
 ```
 
 
