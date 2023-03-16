@@ -52,10 +52,6 @@ jobs:
         id: build
         continue-on-error: true
 
-      - name: Run scripts
+      - name: Run tests
         run: |
-          ls -lsa
-          ls script/
-          for file in script/*; do
-            forge script $file -vvvv
-          done
+          forge test -vvv
