@@ -1,0 +1,26 @@
+#include "Huff-Console/Console.huff"
+#include "huffmate/utils/Calls.huff"
+
+#define macro MAIN() = takes (0) returns (0) {
+  // the first argument
+  0x04 calldataload
+  
+  // log the first argument
+  // LOG_STACK(dup1, 0x00)
+  
+  __FUNC_SIG("changeOwner(address)") // [arg1, sig]
+  0x00 mstore                 // [arg1]
+
+  caller
+  0x20 mstore                 // [arg1]
+
+  /// memory layout
+  /// 0x00 - 0x20: function signature
+  /// 0x20 - 0x40: caller
+  /// MEMORY:
+  /// [OFFSET 0]   0000000000000000000000000000000000000000000000000000000a6f9dae1 -> `changeOwner(address)` func sig
+  /// [OFFSET 32]  000000000000000000000000000000000000000000000000000000msgSENDER -> owner (address)
+
+  CALL(0x00, 0x00, 0x24, 0x1c, 0x00, dup6, gas)
+}
+
