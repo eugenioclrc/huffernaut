@@ -1,0 +1,18 @@
+#include "Huff-Console/Console.huff"
+#include "huffmate/utils/Calls.huff"
+
+#define constant PUZZLE = 0x00
+
+#define macro MAIN() = takes(0) returns(0) {
+  0x00 calldataload 
+  0xE0 shr                 // [func_sig (calldata @ 0x00 >> 0xE0)]
+
+  __FUNC_SIG("claimThrone()") eq claimThrone jumpi           // []
+  
+  0x00 dup1 revert
+
+  claimThrone:
+    CALL(0x00, dup1, dup1, dup1, callvalue, PUZZLE , gas)
+
+  
+}
