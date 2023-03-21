@@ -3,7 +3,7 @@
 
 #define macro CONSTRUCTOR() = takes (0) returns (0) {
   // the first argument
-    // Copy the first argument into memory
+  // Copy the first argument into memory
   0x20                        // [size] - byte size to copy
   0x20 codesize sub           // [offset, size] - offset in the code to copy from
   0x00                        // [mem, offset, size] - offset in memory to copy to

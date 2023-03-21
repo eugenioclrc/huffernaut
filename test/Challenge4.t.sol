@@ -30,7 +30,7 @@ contract Challenge4Test is Test {
 
         vm.startPrank(player,player);
 
-        address hack = HuffDeployer
+        HuffDeployer
         .config()
         .with_args(bytes.concat(abi.encode(address(puzzle))))
         .deploy("Challenge4-telephone/Hack");
