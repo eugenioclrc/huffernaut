@@ -82,6 +82,13 @@ Inside the `test` folder you will find one test cases per challenge for both the
 1) DelegateCall
 2) Fallout
 3) Coinflip
+4) Telephone
+5) Token
+6) Delegation
+7) Force
+8) Vault
+9) King
+
 
 
 ## License
